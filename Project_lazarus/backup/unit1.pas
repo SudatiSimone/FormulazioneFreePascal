@@ -27,10 +27,14 @@ type
 		StaticText3: TStaticText;
 		StaticText4: TStaticText;
 		StaticText5: TStaticText;
+		StaticText6: TStaticText;
+		StaticText7: TStaticText;
 		procedure btnCalculateClick(Sender: TObject);
+
   procedure btnInsert1Click(Sender: TObject);
 		procedure btnInsert2Click(Sender: TObject);
 		procedure btnInsert3Click(Sender: TObject);
+
 
 
 	private
@@ -43,6 +47,7 @@ var
 	Form1: TForm1;
 	Expression: String;
 	FParser: TFPExpressionParser;
+
 	parserResult: TFPExpressionResult;
 
 implementation
@@ -71,13 +76,25 @@ begin
 	edtExpression.Caption := edtExpression.Text +cmbBox3.Text;
 end;
 
+
+
 procedure TForm1.btnCalculateClick(Sender: TObject);
 begin
+
 	FParser := TFpExpressionParser.Create(self);
+	with FParser do begin
+   	BuiltIns := [bcMath];
+   	Identifiers.AddFloatVariable('x', 1.5);
+   	Identifiers.AddFloatVariable('e', exp(1.0));
+
+// etc.
+end;
 	FParser.Expression := edtExpression.Text;
 	parserResult := FParser.Evaluate;
-	edtResult.Caption := IntToStr(parserResult.ResFloat);
+	edtResult.Caption := FloatToStr(parserResult.ResFloat);
 
 end;
+
+
 
 end.

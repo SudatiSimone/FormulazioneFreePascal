@@ -56,7 +56,7 @@ object Form1: TForm1
     TabOrder = 4
   end
   object cmbBox2: TComboBox
-    Left = 304
+    Left = 296
     Height = 49
     Top = 120
     Width = 250
@@ -149,5 +149,29 @@ object Form1: TForm1
     Caption = 'Inserisci '
     OnClick = btnInsert1Click
     TabOrder = 13
+  end
+  object StaticText6: TStaticText
+    Left = 24
+    Height = 43
+    Top = 680
+    Width = 688
+    Caption = '(Ad ora si possono creare variabili solo nel codice)'
+    Color = clRed
+    Font.Style = [fsBold, fsUnderline]
+    ParentFont = False
+    ParentColor = False
+    TabOrder = 14
+  end
+  object StaticText7: TStaticText
+    Left = 208
+    Height = 43
+    Top = 320
+    Width = 688
+    Caption = 'Inserire float es. 1.5'
+    Color = clRed
+    Font.Style = [fsBold, fsUnderline]
+    ParentFont = False
+    ParentColor = False
+    TabOrder = 15
   end
 end
