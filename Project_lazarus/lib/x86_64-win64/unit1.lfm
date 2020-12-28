@@ -1,0 +1,153 @@
+object Form1: TForm1
+  Left = 966
+  Height = 1123
+  Top = 333
+  Width = 1008
+  Caption = 'Form1'
+  ClientHeight = 1123
+  ClientWidth = 1008
+  DesignTimePPI = 240
+  LCLVersion = '1.8.4.0'
+  object edtExpression: TEdit
+    Left = 32
+    Height = 49
+    Top = 400
+    Width = 416
+    TabOrder = 0
+  end
+  object StaticText1: TStaticText
+    Left = 24
+    Height = 43
+    Top = 320
+    Width = 163
+    Caption = 'Espressione:'
+    TabOrder = 1
+  end
+  object StaticText2: TStaticText
+    Left = 296
+    Height = 43
+    Top = 63
+    Width = 163
+    Caption = 'Operazione:'
+    TabOrder = 2
+  end
+  object cmbBox1: TComboBox
+    Left = 16
+    Height = 49
+    Top = 120
+    Width = 250
+    ItemHeight = 41
+    ItemIndex = 0
+    Items.Strings = (
+      'Variabile1'
+      'Variabile2'
+      'Variabile3'
+      'Variabile4'
+    )
+    TabOrder = 3
+    Text = 'Variabile1'
+  end
+  object StaticText3: TStaticText
+    Left = 24
+    Height = 43
+    Top = 56
+    Width = 123
+    Caption = 'Variabili:'
+    TabOrder = 4
+  end
+  object cmbBox2: TComboBox
+    Left = 304
+    Height = 49
+    Top = 120
+    Width = 250
+    ItemHeight = 41
+    ItemIndex = 0
+    Items.Strings = (
+      '+'
+      '-'
+      '*'
+      '/'
+      '%'
+      ''
+      ''
+    )
+    TabOrder = 5
+    Text = '+'
+  end
+  object StaticText4: TStaticText
+    Left = 616
+    Height = 43
+    Top = 56
+    Width = 163
+    Caption = 'Costrutto:'
+    TabOrder = 6
+  end
+  object cmbBox3: TComboBox
+    Left = 616
+    Height = 49
+    Top = 120
+    Width = 250
+    ItemHeight = 41
+    ItemIndex = 0
+    Items.Strings = (
+      'if(  ) {} '
+      'while(){}'
+      ''
+      ''
+      ''
+    )
+    TabOrder = 7
+    Text = 'if(  ) {} '
+  end
+  object StaticText5: TStaticText
+    Left = 24
+    Height = 43
+    Top = 496
+    Width = 163
+    Caption = 'Risultato:'
+    TabOrder = 8
+  end
+  object edtResult: TEdit
+    Left = 24
+    Height = 49
+    Top = 560
+    Width = 424
+    TabOrder = 9
+  end
+  object btnCalculate: TButton
+    Left = 478
+    Height = 50
+    Top = 400
+    Width = 100
+    Caption = 'Calcola'
+    OnClick = btnCalculateClick
+    TabOrder = 10
+  end
+  object btnInsert2: TButton
+    Left = 488
+    Height = 47
+    Top = 59
+    Width = 84
+    Caption = 'Inserisci'
+    OnClick = btnInsert2Click
+    TabOrder = 11
+  end
+  object btnInsert3: TButton
+    Left = 800
+    Height = 42
+    Top = 64
+    Width = 108
+    Caption = 'Inserisci'
+    OnClick = btnInsert3Click
+    TabOrder = 12
+  end
+  object btnInsert1: TButton
+    Left = 152
+    Height = 48
+    Top = 56
+    Width = 104
+    Caption = 'Inserisci '
+    OnClick = btnInsert1Click
+    TabOrder = 13
+  end
+end
