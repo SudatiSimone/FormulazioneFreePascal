@@ -17,9 +17,14 @@ type
 		btnInsert2: TButton;
 		btnInsert3: TButton;
 		btnInsert1: TButton;
+		btnStart: TButton;
+		btnCreate: TButton;
 		cmbBox1: TComboBox;
 		cmbBox2: TComboBox;
 		cmbBox3: TComboBox;
+		edtVariable: TEdit;
+		edtNameVariable: TEdit;
+		edtValueVariable: TEdit;
 		edtExpression: TEdit;
 		edtResult: TEdit;
 		StaticText1: TStaticText;
@@ -27,13 +32,16 @@ type
 		StaticText3: TStaticText;
 		StaticText4: TStaticText;
 		StaticText5: TStaticText;
-		StaticText6: TStaticText;
+		txtNewVariable: TStaticText;
 		StaticText7: TStaticText;
 		procedure btnCalculateClick(Sender: TObject);
+		procedure btnCreateClick(Sender: TObject);
 
   procedure btnInsert1Click(Sender: TObject);
 		procedure btnInsert2Click(Sender: TObject);
 		procedure btnInsert3Click(Sender: TObject);
+		procedure btnStartClick(Sender: TObject);
+		procedure FormCreate(Sender: TObject);
 
 
 
@@ -76,23 +84,39 @@ begin
 	edtExpression.Caption := edtExpression.Text +cmbBox3.Text;
 end;
 
+procedure TForm1.btnStartClick(Sender: TObject);
+begin
+	FParser := TFpExpressionParser.Create(self);
+	with FParser do begin
+   	BuiltIns := [bcMath];
+   	Identifiers.AddFloatVariable('x', 1.5);
+   	Identifiers.AddFloatVariable('y', 3.2);
+   	Identifiers.AddFloatVariable('e', exp(1.0));
+
+	end;
+	edtVariable.Caption := FParser.Identifiers[0].ToString;
+
+end;
+
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+
+end;
 
 
 procedure TForm1.btnCalculateClick(Sender: TObject);
 begin
 
-	FParser := TFpExpressionParser.Create(self);
-	with FParser do begin
-   	BuiltIns := [bcMath];
-   	Identifiers.AddFloatVariable('x', 1.5);
-   	Identifiers.AddFloatVariable('e', exp(1.0));
-
-// etc.
-end;
 	FParser.Expression := edtExpression.Text;
 	parserResult := FParser.Evaluate;
 	edtResult.Caption := FloatToStr(parserResult.ResFloat);
 
+end;
+
+procedure TForm1.btnCreateClick(Sender: TObject);
+begin
+	FParser.Identifiers.AddFloatVariable(edtNameVariable.Text, StrToFloat(edtValueVariable.Text));
 end;
 
 
