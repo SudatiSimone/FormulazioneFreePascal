@@ -42,6 +42,8 @@ type
 var
 	Form1: TForm1;
 	Expression: String;
+	FParser: TFPExpressionParser;
+	parserResult: TFPExpressionResult;
 
 implementation
 
@@ -71,7 +73,10 @@ end;
 
 procedure TForm1.btnCalculateClick(Sender: TObject);
 begin
-	edtResult.Caption := edtExpression.Caption;
+	FParser := TFpExpressionParser.Create(self);
+	FParser.Expression := edtExpression.Text;
+	parserResult := FParser.Evaluate;
+	edtResult.Caption := IntToStr(parserResult.ResInteger);
 
 end;
 
